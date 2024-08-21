@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let markWeight = 78;
+        let markHeight = 1.69;
+        let johnWeight = 92;
+        let johnHeight = 1.95;
+        let markBMI = (markWeight / (markHeight * markHeight)).toFixed(2);
+        let johnBMI = (johnWeight / (johnHeight * johnHeight)).toFixed(2);
+        let markHigherBMI = markBMI > johnBMI;
+        console.log("BMI of mark:" + markBMI + " \nBMI of Join :" + johnBMI + "\nmarkHigherBMI" + markHigherBMI);
+        if (markBMI > johnBMI) {
+            console.log(` Cau 1:BMI of Mark  is higher than John `);
+        } else {
+            console.log(`  Cau 1: BMI of John  is higher than Mark`);
+        }
+        if (markBMI > johnBMI) {
+            console.log(` Cau 2:BMI of Mark (${markBMI}) is higher than John (${johnBMI})`);
+        } else {
+            console.log(` Cau 2:BMI of John (${johnBMI}) is higher than Mark (${markBMI})`);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
