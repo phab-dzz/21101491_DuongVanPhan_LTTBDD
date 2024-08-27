@@ -18,33 +18,37 @@ fields
 </head>
 
 <body>
-    <section class="game">
+    <header>
         <h1>Guess My Number!</h1>
+    </header>
+    <section>
         <p class="message">Start guessing...</p>
         <p class="number">?</p>
-        <input type="number" class="guess" />
-
+        <p class="score">20</p>
+        <input type="number" class="guess" placeholder="Enter a number between 1 and 20" />
+        <button class="check">Check!</button>
         <button class="again">Again!</button>
-        <p class="label-score">Score: <span class="score">20</span></p>
     </section>
     <script>
         let secretNumber = Math.trunc(Math.random() * 20) + 1;
         let score = 20;
-        let highscore = 0;
 
-        document.querySelector(".again").addEventListener("click", function() {
+        document.querySelector('.again').addEventListener('click', function () {
+
+
             score = 20;
             secretNumber = Math.trunc(Math.random() * 20) + 1;
 
-            document.querySelector(".message").textContent = "Start guessing...";
-            document.querySelector(".score").textContent = score;
-            document.querySelector(".number").textContent = "?";
-            document.querySelector(".guess").value = "";
 
-            document.querySelector("body").style.backgroundColor = "#222";
-            document.querySelector(".number").style.width = "15rem";
+            document.querySelector('.message').textContent = 'Start guessing...';
+            document.querySelector('.score').textContent = score;
+            document.querySelector('.number').textContent = '?';
+            document.querySelector('.guess').value = '';
+            document.querySelector('body').style.backgroundColor = '#222';
+            document.querySelector('.number').style.width = '15rem';
         });
     </script>
+
 
 </body>
 

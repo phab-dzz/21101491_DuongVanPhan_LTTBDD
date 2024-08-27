@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const game = {
+            team1: 'Bayern Munich',
+            team2: 'Borrussia Dortmund',
+            players: [
+                [
+                    'Neuer',
+                    'Pavard',
+                    'Martinez',
+                    'Alaba',
+                    'Davies',
+                    'Kimmich',
+                    'Goretzka',
+                    'Coman',
+                    'Muller',
+                    'Gnabry',
+                    'Lewandowski'
+                ],
+                [
+                    'Burki',
+                    'Schulz',
+                    'Hummels',
+                    'Akanji',
+                    'Hakimi',
+                    'Weigl',
+                    'Witsel',
+                    'Hazard',
+                    'Brandt',
+                    'Sancho',
+                    'Gotze'
+                ]
+            ],
+            score: '4:0',
+            scored: ['Lewandowski', 'Gnabry', 'Lewandowski', 'Hummels'],
+            date: 'Nov 9th, 2037',
+            odds: {
+                team1: 1.33,
+                draw: 3.25,
+                team2: 6.5
+            }
+        };
+        game.scored.forEach((player, index) => {
+            console.log(`Goal ${index + 1}: ${player}`);
+        });
+        const oddss = Object.values(game.odds);
+        let averageOdds = 0;
+
+        for (const odd of oddss) {
+            averageOdds += odd;
+        }
+
+        averageOdd /= odds.length;
+        console.log(`Average odd: ${averageOdd}`);
+        const oddsss = Object.values(game.odds);
+        let averageOdd = 0;
+
+        for (const odd of oddsss) {
+            averageOdd += odd;
+        }
+
+        averageOdd /= odds.length;
+        console.log(`Average odd: ${averageOdd}`);
+        const odds = Object.values(game.odds);
+        for (const [team, odd] of Object.entries(game.odds)) {
+            const teamStr = team === 'x' ? 'draw' : `victory ${game[team]}`;
+            console.log(`Odd of ${teamStr}: ${odd}`);
+        }
+        const scorers = {};
+
+        for (const player of game.scored) {
+            scorers[player] = (scorers[player] || 0) + 1;
+        }
+
+        console.log(scorers);
+
+    </script>
+</body>
+
+</html>

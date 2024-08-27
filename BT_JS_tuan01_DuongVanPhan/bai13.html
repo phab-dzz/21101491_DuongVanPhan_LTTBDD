@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        const variables = `underscore_case
+                first_name
+                some_variable
+                calculate_age
+                delayed_departure`;
+
+
+        const variableList = variables.split('\n');
+        for (const [index, variable] of variableList.entries()) {
+
+            const [first, second] = variable.toLowerCase().trim().split('_');
+
+            const camelCaseVar = first + second.replace(second[0], second[0].toUpperCase());
+
+
+            const checkmarks = '✅'.repeat(index + 1);
+
+
+            console.log(`${camelCaseVar} ${checkmarks}`);
+        }
+
+    </script>
+</body>
+
+</html>
