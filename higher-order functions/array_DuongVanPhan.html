@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- return new array -->
+    <script>
+        function myarray(nums) {
+            let arr = [];
+            for (let i = 0; i < nums.length; i++) {
+                arr.push(nums[i] * 2);
+            }
+            return arr;
+        }
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let arr1 = myarray(arr);
+        console.log(arr1);
+    </script>
+</body>
+
+</html>
