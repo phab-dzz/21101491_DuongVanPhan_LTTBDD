@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let dolphins = [96, 108, 89];
+        let koalas = [88, 91, 110];
+        let dolphinsAverage = (dolphins[0] + dolphins[1] + dolphins[2]) / 3;
+
+
+        let koalasAverage = (koalas[0] + koalas[1] + koalas[2]) / 3;
+        console.log(`Dolphins Average: ${dolphinsAverage} \nKoalas Average: ${koalasAverage}`);
+        if (dolphinsAverage > koalasAverage && dolphinsAverage >= 100) {
+            console.log(`Dolphins win the trophy`);
+        } else if (dolphinsAverage < koalasAverage && koalasAverage >= 100) {
+            console.log(`Koalas win the trophy`);
+        } else if (dolphinsAverage === koalasAverage && dolphinsAverage >= 100 && koalasAverage >= 100) {
+            console.log(`Draw`);
+        } else {
+            console.log(`No one wins the trophy`);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

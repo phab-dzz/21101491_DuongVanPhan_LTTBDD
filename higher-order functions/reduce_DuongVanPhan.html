@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Array.prototype.myreduce = function(call, init) {
+
+            let result = init;
+            for (let i = 0; i < this.length; i++) {
+                console.log(result);
+                result = call(result, this[i]);
+            }
+            return result;
+        }
+        let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let arr1 = arr.myreduce((a, b) => {
+            return a + b;
+        }, 0);
+        console.log(arr1);
+    </script>
+</body>
+
+</html>
