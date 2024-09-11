@@ -1,9 +1,14 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, Alert } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import { Ionicons } from '@expo/vector-icons';
+
 function Screen_2b() {
     const star = new Array(5).fill(0);
+    const [text, settext] = useState('')
+    const showImage = () => {
+        Alert.alert("Chọn ảnh upload!");
+    }
     return (
         <View style={{ flex: 100, width: '100%' }}>
             <View style={{ flex: 20, width: '80%', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 20 }}>
@@ -27,19 +32,8 @@ function Screen_2b() {
 
                     <View style={{ flex: 35, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
                         <TouchableOpacity
-                            style={{
-                                borderWidth: 1,
-                                width: '80%',
-                                height: 70,
-                                borderWidth: 1,
-                                borderColor: 'blue',
-                                borderRadius: 10,
-                                flexDirection: 'row',
-                                justifyContent: 'center',
-                                alignItems: 'center'
-
-
-                            }}
+                            style={styles.Button_image}
+                            onPress={showImage}
                         >
                             <Ionicons name="camera" size={50} />
                             <Text style={{ fontSize: 22, fontWeight: 'bold' }}> Thêm hình ảnh</Text>
@@ -55,6 +49,8 @@ function Screen_2b() {
                                 placeholder="Hãy chia sẻ những điều mà bạn thích về sản phẩm"
                                 placeholderTextColor="#d3d3d3"
                                 multiline
+                                value={text}
+                                onChangeText={settext}
                             />
                             <Text style={styles.linkText}>https://meet.google.com/nsj-ojwi-xpp</Text>
                         </View>
@@ -68,18 +64,8 @@ function Screen_2b() {
                 <View style={{ flex: 20, width: '100%', alignItems: 'center', justifyContent: 'center' }}>
 
                     <TouchableOpacity
-                        style={{
-
-                            width: '80%',
-                            height: 50,
-                            borderWidth: 1,
-                            backgroundColor: 'blue',
-                            borderColor: 'blue',
-                            borderRadius: 10,
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            justifyContent: 'center'
-                        }}
+                        style={styles.Button_submit}
+                        onPress={() => Alert.alert('Cảm ơn bạn đã gửi đánh giá: \n' + text)}
                     >
                         <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#fff' }}>Gửi</Text>
 
@@ -123,6 +109,29 @@ const styles = StyleSheet.create({
         color: 'black',
         textAlign: 'right',
     },
+    Button_image: {
+        borderWidth: 1,
+        width: '80%',
+        height: 70,
+        borderWidth: 1,
+        borderColor: 'blue',
+        borderRadius: 10,
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    Button_submit: {
+
+        width: '80%',
+        height: 50,
+        borderWidth: 1,
+        backgroundColor: 'blue',
+        borderColor: 'blue',
+        borderRadius: 10,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
 });
 
 

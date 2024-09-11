@@ -14,7 +14,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="hide" />
-      <Screen_one />
+      <Screen_2b />
     </SafeAreaView>
   );
 }
