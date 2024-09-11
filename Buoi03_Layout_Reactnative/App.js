@@ -10,11 +10,12 @@ import Screen07 from './src/screens/Screen07';
 import Screen08 from './src/screens/Screen08';
 import Screen_one from './src/Screen_T2/Screen_one';
 import Screen_2b from './src/Screen_T2/Screen_2b';
+import Screen_2c from './src/Screen_T2/Screen_2c';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="hide" />
-      <Screen_2b />
+      <Screen_2c />
     </SafeAreaView>
   );
 }
