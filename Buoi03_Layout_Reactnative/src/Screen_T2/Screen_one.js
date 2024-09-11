@@ -1,8 +1,22 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity, TextInput, StyleSheet, Alert } from 'react-native';
 import Checkbox from 'expo-checkbox';
 import { Ionicons } from '@expo/vector-icons';
+
 function Screen07() {
+    const [email, setemail] = useState('');
+    const [password, setpassword] = useState('');
+    const [showPassword, setshowPassword] = useState(false);
+    function showAlert() {
+        if (email.length === 0 || password.length === 0) {
+            Alert.alert('email hoặc password chưa được nhập');
+        }
+        else
+            Alert.alert(`Login Success`);
+    }
+    const toggleShowPassword = () => {
+        setshowPassword(!showPassword);
+    }
     return (
         <View style={{ flex: 100, backgroundColor: '#FBCB00' }}>
             <View
@@ -30,6 +44,8 @@ function Screen07() {
                         placeholderTextColor={'black'}
                         keyboardType='text'
                         style={{ marginLeft: 15 }}
+                        value={email}
+                        onChangeText={(text) => setemail(text)}
                     />
                 </View>
 
@@ -39,11 +55,20 @@ function Screen07() {
                     <TextInput
                         placeholder="Password"
                         placeholderTextColor={'black'}
-                        keyboardType='text'
+                        keyboardType='password'
+                        secureTextEntry={!showPassword}
                         style={{ marginLeft: 15 }}
+                        value={password}
+                        onChangeText={(text) => setpassword(text)}
 
                     />
-                    <Image source={require('../../assets/eye.png')} style={{ marginLeft: 200 }} />
+                    <TouchableOpacity onPress={toggleShowPassword} style={{ marginLeft: 200 }}>
+                        <Ionicons name={showPassword ? 'eye' : 'eye-off'} size={30} color="#000" />
+                    </TouchableOpacity>
+
+                    {/* <Image source={require('../../assets/eye.png')} style={{ marginLeft: 200 }} />
+              */}
+
                 </View>
 
 
@@ -53,15 +78,8 @@ function Screen07() {
             </View>
             <View style={{ flex: 45, justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity
-                    style={{
-                        width: '90%',
-                        alignItems: 'center',
-                        height: 55,
-                        justifyContent: 'center',
-                        backgroundColor: '#000',
-
-                        marginTop: 30,
-                    }}
+                    style={styles.button}
+                    onPress={showAlert}
                 >
                     <Text
                         style={{
@@ -96,6 +114,15 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         marginBottom: 30,
     },
+    button: {
+        width: '90%',
+        alignItems: 'center',
+        height: 55,
+        justifyContent: 'center',
+        backgroundColor: '#000',
+        marginTop: 30,
+
+    }
 });
 
 export default Screen07;
