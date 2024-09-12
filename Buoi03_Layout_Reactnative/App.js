@@ -11,11 +11,12 @@ import Screen08 from './src/screens/Screen08';
 import Screen_one from './src/Screen_T2/Screen_one';
 import Screen_2b from './src/Screen_T2/Screen_2b';
 import Screen_2c from './src/Screen_T2/Screen_2c';
+import Screen_tiki from './src/Screen_T2/Screen_tiki';
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar style="hide" />
-      <Screen_2c />
+      <Screen_tiki />
     </SafeAreaView>
   );
 }
