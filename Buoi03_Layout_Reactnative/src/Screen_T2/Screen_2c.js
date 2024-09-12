@@ -5,19 +5,26 @@ import { Ionicons } from '@expo/vector-icons';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 function Screen07() {
-    const [email, setemail] = useState('');
-    const [password, setpassword] = useState('');
-    const [showPassword, setshowPassword] = useState(false);
-    function showAlert() {
-        if (email.length === 0 || password.length === 0) {
-            Alert.alert('email hoặc password chưa được nhập');
+
+    const [password, setPassword] = useState('');
+    function generatePass() {
+        let pass = '';
+        let str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' +
+            'abcdefghijklmnopqrstuvwxyz0123456789@#$';
+
+        for (let i = 1; i <= 8; i++) {
+            let char = Math.floor(Math.random()
+                * str.length + 1);
+
+            pass += str.charAt(char)
         }
-        else
-            Alert.alert(`Login Success`);
+
+        return pass;
     }
-    const toggleShowPassword = () => {
-        setshowPassword(!showPassword);
+    const handleGenerate = () => {
+        setPassword(generatePass());
     }
+
     return (
         <View style={{ flex: 100, backgroundColor: '#23235B' }}>
             <View style={{ flex: 40, justifyContent: 'center', alignItems: 'center', marginBottom: 50 }}>
@@ -25,8 +32,8 @@ function Screen07() {
                     <Text style={{ fontSize: 32, fontWeight: 'bold', color: 'white' }}>PASSWORD{'\n'} GENERATOR</Text>
                 </View>
                 <TextInput
-                    style={{ width: '80%', height: 50, backgroundColor: '#151537' }}
-
+                    style={{ width: '80%', height: 50, backgroundColor: '#151537', color: 'white', fontSize: 20 }}
+                    value={password}
                     placeholderTextColor="#d3d3d3"
                     multiline
                     secureTextEntry={true}
@@ -37,72 +44,47 @@ function Screen07() {
             </View>
             <View style={{ flex: 40, width: '100%', alignItems: 'center', gap: 20 }}>
 
-                <View style={{ width: '80%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                    <Text style={{ color: 'white', fontWeight: 'bold' }}>Password length</Text>
-                    <TextInput style={{ backgroundColor: 'white', width: 100 }} />
+                <View style={styles.text_row}>
+                    <Text style={styles.text}>Password length</Text>
+                    <TextInput style={{ backgroundColor: 'white', width: 100, color: 'black' }}
+                        value={password.length.toString()}
+                    />
 
                 </View>
-                <View style={{ width: '80%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                    <Text style={{ color: 'white', fontWeight: 'bold' }} >Include lower case letters</Text>
+                <View style={styles.text_row}>
+                    <Text style={styles.text} >Include lower case letters</Text>
                     <Checkbox
-                        style={{
-                            width: 30,
-                            height: 30,
-                            backgroundColor: 'white',
-                            marginRight: 8,
-                        }}
+                        style={styles.Checkbox}
                         value={true}
                     />
 
                 </View>
-                <View style={{ width: '80%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                    <Text style={{ color: 'white', fontWeight: 'bold' }}>Include uppercase letters</Text>
+                <View style={styles.text_row}>
+                    <Text style={styles.text}>Include uppercase letters</Text>
                     <Checkbox
-                        style={{
-                            width: 30,
-                            height: 30,
-                            backgroundColor: 'white',
-                            marginRight: 8,
-                        }}
+                        style={styles.Checkbox}
                     />
 
                 </View>
-                <View style={{ width: '80%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                    <Text style={{ color: 'white', fontWeight: 'bold' }}>Include number</Text>
+                <View style={styles.text_row}>
+                    <Text style={styles.text}>Include number</Text>
                     <Checkbox
-                        style={{
-                            width: 30,
-                            height: 30,
-                            backgroundColor: 'white',
-                            marginRight: 8,
-                        }}
+                        style={styles.Checkbox}
                     />
 
                 </View>
-                <View style={{ width: '80%', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                    <Text style={{ color: 'white', fontWeight: 'bold' }}>Include special symbol</Text>
+                <View style={styles.text_row}>
+                    <Text style={styles.text}>Include special symbol</Text>
                     <Checkbox
-                        style={{
-                            width: 30,
-                            height: 30,
-                            backgroundColor: 'white',
-                            marginRight: 8,
-                        }}
+                        style={styles.Checkbox}
                     />
 
                 </View>
             </View>
             <View style={{ flex: 20, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
                 <TouchableOpacity
-                    style={{
-                        width: '80%',
-                        alignItems: 'center',
-                        height: 60,
-                        justifyContent: 'center',
-                        backgroundColor: '#3B3B98',
-
-                    }}
-                    onPress={() => alert('Password generated')}
+                    style={styles.button}
+                    onPress={handleGenerate}
                 >
                     <Text
                         style={{
@@ -135,13 +117,29 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     button: {
-        width: '90%',
+        width: '80%',
         alignItems: 'center',
-        height: 55,
+        height: 60,
         justifyContent: 'center',
-        backgroundColor: '#000',
-        marginTop: 30,
+        backgroundColor: '#3B3B98',
 
+
+    },
+    text_row: {
+        width: '80%',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    text: {
+        color: 'white',
+        fontWeight: 'bold'
+    },
+    Checkbox: {
+        width: 30,
+        height: 30,
+        backgroundColor: 'white',
+        marginRight: 8,
     }
 });
 
