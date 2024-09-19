@@ -79,7 +79,7 @@ function Screen_tiki() {
 
                 </View>
                 <View style={{ flex: 30, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', width: '100%' }}>
-                    <View style={{ width: '60%', borderWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, height: 60, marginLeft: 15 }}>
+                    <View style={styles.textdis}>
                         <Image source={require('../../assets/yellow_block.png')} style={{ width: 40, height: 20 }} />
                         <Text style={{ fontSize: 20, fontWeight: 'bold', }}>
                             Mã giảm giá
@@ -168,5 +168,8 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginHorizontal: 10,
     },
+    textdis: {
+        width: '60%', borderWidth: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 10, height: 60, marginLeft: 15
+    }
 });
 export default Screen_tiki;
