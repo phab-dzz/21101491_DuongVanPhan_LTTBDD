@@ -6,7 +6,7 @@ function Item({ item }) {
     return (
         <View style={styles.container}>
             <Image source={item.image} style={{ width: 75, height: 75 }} />
-            <View>
+            <View style={styles.Viewmid} >
                 <Text style={{ fontSize: 20 }}>{item.title}</Text>
                 <Text style={{ fontSize: 18, color: 'red' }}>Shop: {item.shop}</Text>
             </View>
@@ -29,7 +29,7 @@ function Item({ item }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#dbd9d9',
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-around',
@@ -39,5 +39,10 @@ const styles = StyleSheet.create({
         borderBottomColor: 'gray',
 
     },
+    Viewmid: {
+        width: 200,
+
+
+    }
 });
 export default Item;
