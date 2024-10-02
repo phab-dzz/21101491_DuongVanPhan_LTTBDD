@@ -8,6 +8,7 @@ export default function App() {
     const showUserApi = "https://66fc8f50c3a184a84d174f6d.mockapi.io/datauser";
     const [name, setName] = useState('');
     const [user, setUser] = useState([]);
+    const [id, setId] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const getUsers = () => {
@@ -40,14 +41,17 @@ export default function App() {
             Alert.alert('Lỗi', 'Có lỗi xảy ra khi thêm người dùng.');
           });
       };
-    
-      const updateUser = (updatedUser) => {
+    const editUser = (user) => {
+        setName(user.name);
+        setId(user.id);
+      }
+      const updateUser = () => {
        
         axios
-          .put(`${showUserApi}/${updatedUser.id}`, updatedUser)
+          .put(`${showUserApi}/${id}`, { name })
           .then((res) => {
             setUser((prevUsers) =>
-              prevUsers.map((user) => (user.id === updatedUser.id ? res.data : user))
+              prevUsers.map((user) => (user.id === id ? res.data : user))
             );
           })
           .catch((err) => {
@@ -90,7 +94,9 @@ export default function App() {
         onPress={addUser}>
             <Text style={{color:'#FFF',textAlign:'center'}}>Add</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button}
+        
+        onPress={updateUser}>
             <Text style={{color:'#FFF',textAlign:'center'}}>Edit</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.button}>
@@ -126,7 +132,7 @@ export default function App() {
                                  </TouchableOpacity>
                                 <TouchableOpacity style={styles.buttonsub}
                                 
-                                onPress={()=>updateUser(item)}>
+                                onPress={()=>editUser(item)}>
                                     <Text style={{color:'#FFF',textAlign:'center'}}>Edit</Text>
                                 </TouchableOpacity>
                                 </View>
