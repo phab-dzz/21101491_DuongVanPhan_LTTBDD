@@ -6,6 +6,8 @@ import { StyleSheet, Text, View, TouchableOpacity, FlatList, Alert, Pressable, T
 import axios from 'axios';
 import API_Screen_01 from './src/screens/API_Screen_01';
 import API_Screen_02 from './src/screens/API_Screen_02';
+import detail_portrait from './src/screens/part2/detail_portrait';
+import master_portrait from './src/screens/part2/master_portrait';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import API_Screen_03 from './src/screens/API_Screen_03';
@@ -14,13 +16,16 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Home"
+      
         screenOptions={{
           headerShown: false,
           //  headerTitleAlign: 'center', 
           animation: 'slide_from_left' // Hiệu ứng chuyển cảnh
         }}
       >
+      
+        <Stack.Screen name="detail_portrait" component={detail_portrait} />
+        <Stack.Screen name="detail_portrait" component={detail_portrait} />
         <Stack.Screen name="API_Screen_01" component={API_Screen_01} />
         <Stack.Screen name="API_Screen_02" component={API_Screen_02} />
         <Stack.Screen name="API_Screen_03" component={API_Screen_03} />
